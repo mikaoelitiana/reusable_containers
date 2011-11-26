@@ -1,0 +1,4 @@
+nav
+  ul
+    - ReusableContainers::Entry.published.each do |e|
+      li= public_link_to_entry(e)
