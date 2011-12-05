@@ -26,7 +26,7 @@
     = f.text_field :description
   .field
     = f.label :container_id
-    = f.select :container_id, Container.all.map{ |c| [ c.name, c.id ] }, :prompt => false
+    = f.select :container_id, ReusableContainers::Container.all.map{ |c| [ c.name, c.id ] }, :prompt => false
   .field
     = f.label :published
     = f.check_box :published

@@ -10,3 +10,23 @@
  
     rake reusable_containers:install:migrations
     rake db:migrate
+
+ * edit Gemfile and add : 
+    
+    #ReusableContainers
+    gem 'reusable_containers', :git => 'git://github.com/mikaoelitiana/reusable_containers.git'
+    gem 'friendly_id', '~> 4.0.0.beta14'
+    gem 'ancestry'
+    gem 'slim-rails'
+    
+ * create some scaffold : 
+ 
+    rails generate scaffold news title:string content:string
+    rake db:migrate
+    
+ * Add entry with id 1 and container with id 1
+ 
+ * edit routes.rb : 
+ 
+    mount ReusableContainers::Engine => "/" 
+    root :to => 'entries#show', :slug => "1", :as => :public_root
